@@ -158,7 +158,7 @@ const ConversionTable = () => {
     try {
       if (validateInputValues() && API_URL !== undefined) {
         const response = await axios.post(
-          `${API_URL}/convert`,
+          `${API_URL}/api/v1/convert`,
           sanitizedRows,
           {
             withCredentials: false,
