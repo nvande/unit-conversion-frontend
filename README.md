@@ -1,8 +1,10 @@
-# Getting Started with Create React App
+Backend repo available here: https://github.com/nvande/unit-conversion-api
+Live demo online via Github Pages here: https://nvande.github.io/unit-conversion-frontend/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Unit Conversion Frontend App
+
+This is a React Typescript front-end application to consume the Unit Conversion API.
 
 In the project directory, you can run:
 
