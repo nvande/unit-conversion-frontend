@@ -18,6 +18,9 @@ REACT_APP_API_URL = http://unit-conversion-api.us-west-2.elasticbeanstalk.com
 
 You will need to replace the URL with the correct localhost address if you are running it locally, ie http://locahlhost:3000
 
+
+## Starting the Application
+
 To start the application, you can run:
 
 ### `npm run start`
