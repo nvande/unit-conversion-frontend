@@ -26,6 +26,8 @@ const InitialRows: ConversionItem[] = [
   },
 ];
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const ConversionTable = () => {
   const [rows, setRows] = useState<ConversionItem[]>(InitialRows);
   const [errors, setErrors] = useState<string[]>([]);
@@ -152,10 +154,11 @@ const ConversionTable = () => {
     setLoading(true);
     clearResults();
     const sanitizedRows = sanitizeRows(rows);
+
     try {
-      if (validateInputValues()) {
+      if (validateInputValues() && API_URL !== undefined) {
         const response = await axios.post(
-          "http://localhost:3000/convert",
+          `${API_URL}/convert`,
           sanitizedRows,
           {
             withCredentials: false,
@@ -305,6 +308,7 @@ const ConversionTable = () => {
             <tbody>
               {rows.map((row, index) => (
                 <ConversionRow
+                  key={index}
                   index={index}
                   row={row}
                   error={errors[index]}
