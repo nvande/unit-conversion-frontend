@@ -267,7 +267,6 @@ const ConversionTable = () => {
 
   return (
     <div>
-      {`${saveIndex}`}
       <Row>
         <Col xs={12} xxl={10}>
           <StudentNameForm

@@ -37,3 +37,16 @@ export const unitOptions = {
   ...TemperatureUnit,
   ...VolumeUnit,
 };
+
+export const unitNames = {
+    kelvin: "Kelvin",
+    celsius: "Celsius",
+    rankine: "Rankine",
+    fahrenheit: "Fahrenheit",
+    liters: "liters",
+    tablespoons: "tablespoons",
+    cubicInches: "cubic inches",
+    cups: "cups",
+    cubicFeet: "cubic feet",
+    gallons: "gallons"
+}

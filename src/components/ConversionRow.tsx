@@ -3,7 +3,7 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-import { ConversionItem, GradeStatus, unitOptions } from "../types/types";
+import { ConversionItem, GradeStatus, unitOptions, unitNames } from "../types/types";
 
 interface Props {
   index: number;
@@ -57,7 +57,7 @@ const ConversionRow: React.FC<Props> = ({
         >
           {Object.values(unitOptions).map((unit) => (
             <option key={unit} value={unit}>
-              {unit}
+              {unitNames[unit]}
             </option>
           ))}
         </Form.Select>
@@ -71,7 +71,7 @@ const ConversionRow: React.FC<Props> = ({
         >
           {Object.values(unitOptions).map((unit) => (
             <option key={unit} value={unit}>
-              {unit}
+              {unitNames[unit]}
             </option>
           ))}
         </Form.Select>
@@ -96,7 +96,7 @@ const ConversionRow: React.FC<Props> = ({
           disabled
         />
       </td>
-      <td>
+      <td style={{ width: "5rem" }}>
         <Button
           variant="danger"
           onClick={() => handleDeleteRow(index)}
