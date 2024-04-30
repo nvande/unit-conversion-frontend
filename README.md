@@ -23,6 +23,7 @@ You will need to replace the URL with the correct localhost address if you are r
 
 To start the application, you can run:
 
+### `npm install`
 ### `npm run start`
 
 You can also build the application with:
