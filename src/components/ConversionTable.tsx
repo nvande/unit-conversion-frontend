@@ -37,8 +37,12 @@ const ConversionTable = () => {
   const [saveIndex, setSaveIndex] = useState<number | null>(null);
   const [students, setStudents] = useState<Student[]>([]);
 
+  const [hasChanged, setHasChanged] = useState(false);
+
   useEffect(() => {
-    updateStudentData();
+    if (hasChanged) {
+      updateStudentData();
+    }
   }, [rows, studentName]);
 
   const updateStudentData = () => {
@@ -71,14 +75,17 @@ const ConversionTable = () => {
       newErrors[index] = "";
       setErrors(newErrors);
     }
+    setHasChanged(true);
     setRows(newRows);
   };
 
   const handleAddRow = () => {
+    setHasChanged(true);
     setRows([...rows, InitialRows[0]]);
   };
 
   const handleDeleteRow = (index: number) => {
+    setHasChanged(true);
     const newRows = rows.filter((_, idx) => idx !== index);
     setRows(newRows);
   };
@@ -235,9 +242,19 @@ const ConversionTable = () => {
 
   const handleAddStudent = () => {
     setStudentName("");
-    setRows(savedTemplate || [...prepareTemplate(rows)]);
+    if(savedTemplate) {
+        setRows(prepareTemplate(savedTemplate));
+    } else {
+        setRows(prepareTemplate(rows))
+    }
     setSaveIndex(null);
+    setHasChanged(true);
   };
+
+  const handleStudentName = (name:string) => {
+    setHasChanged(true);
+    setStudentName(name);
+  }
 
   const loadStudent = (index: number) => {
     const student = students[index];
@@ -250,11 +267,12 @@ const ConversionTable = () => {
 
   return (
     <div>
+      {`${saveIndex}`}
       <Row>
         <Col xs={12} xxl={10}>
           <StudentNameForm
             studentName={studentName}
-            setStudentName={setStudentName}
+            setStudentName={handleStudentName}
             handleAddStudent={handleAddStudent}
           />
           <ButtonGroup className="float-end mt-5 mb-1">
