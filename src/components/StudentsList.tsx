@@ -11,7 +11,7 @@ interface Props {
   saveIndex: number | null;
 }
 
-const StudentList: React.FC<Props> = ({
+const StudentsList: React.FC<Props> = ({
   students,
   loadStudent,
   deleteStudent,
@@ -53,4 +53,4 @@ const StudentList: React.FC<Props> = ({
   );
 };
 
-export default StudentList;
+export default StudentsList;

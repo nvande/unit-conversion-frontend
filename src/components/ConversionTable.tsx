@@ -3,7 +3,7 @@ import axios from "axios";
 import { Table, Row, Col, Button, ButtonGroup } from "react-bootstrap";
 
 import ConversionRow from "./ConversionRow";
-import StudentListComponent from "./StudentsList";
+import StudentsListComponent from "./StudentsList";
 import StudentNameForm from "./StudentNameForm";
 
 import {
@@ -333,7 +333,7 @@ const ConversionTable = () => {
           </div>
         </Col>
         <Col className="mt-5 mt-xl-0">
-          <StudentListComponent
+          <StudentsListComponent
             students={students}
             saveIndex={saveIndex}
             loadStudent={(index: number) => loadStudent(index)}
